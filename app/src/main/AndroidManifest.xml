@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlindTest_project">
         <activity
+            android:name=".ChoiceNamePlayers"
+            android:exported="false" />
+        <activity
+            android:name=".ChoiceParameters"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
