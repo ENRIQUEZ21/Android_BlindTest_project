@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlindTest_project">
         <activity
+            android:name=".PlayGame"
+            android:exported="false" />
+        <activity
             android:name=".ChoiceNamePlayers"
             android:exported="false" />
         <activity

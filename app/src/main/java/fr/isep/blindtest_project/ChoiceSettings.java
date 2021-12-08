@@ -84,7 +84,7 @@ public class ChoiceSettings extends AppCompatActivity {
         Spinner numberToFinishGameSpinner = (Spinner) findViewById(R.id.number_to_finish_spinner);
         String strNumberToFinishGame = numberToFinishGameSpinner.getSelectedItem().toString();
         int numberToFinishGame = Integer.parseInt(strNumberToFinishGame);
-        intent.putExtra("numberOfPlayers", numberToFinishGame);
+        intent.putExtra("numberToFinishGame", numberToFinishGame);
 
         startActivity(intent);
 
