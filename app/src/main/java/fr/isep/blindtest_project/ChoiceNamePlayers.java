@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChoiceNamePlayers extends AppCompatActivity {
 
@@ -53,28 +56,77 @@ public class ChoiceNamePlayers extends AppCompatActivity {
         intent.putExtra("parameterOfEnd", intentBefore.getStringExtra("parameterOfEnd"));
         intent.putExtra("numberToFinishGame", intentBefore.getIntExtra("numberToFinishGame", 0));
         if(numberOfPlayers == 1) {
-            String namePlayer1 = findViewById(R.id.tv_name_of_player_1).toString();
+            EditText editTextPlayer1 = findViewById(R.id.edittext_name_of_player_1);
+            String namePlayer1 = editTextPlayer1.getText().toString();
+            namePlayer1 = namePlayer1.trim();
+            if(namePlayer1.equals("")) {
+                Toast.makeText(ChoiceNamePlayers.this, "You must choose a name for the player 1", Toast.LENGTH_LONG).show();
+                return;
+            }
             intent.putExtra("namePlayer1", namePlayer1);
         } else if(numberOfPlayers == 2) {
-            String namePlayer1 = findViewById(R.id.tv_name_of_player_1).toString();
+            EditText editTextPlayer1 = findViewById(R.id.edittext_name_of_player_1);
+            EditText editTextPlayer2 = findViewById(R.id.edittext_name_of_player_2);
+            String namePlayer1 = editTextPlayer1.getText().toString();
+            namePlayer1 = namePlayer1.trim();
+            String namePlayer2 = editTextPlayer2.getText().toString();
+            namePlayer2 = namePlayer2.trim();
+            if(namePlayer1.equals("") || namePlayer2.equals("")) {
+                Toast.makeText(ChoiceNamePlayers.this, "You must choose a name for all the players", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(namePlayer1.equals(namePlayer2)) {
+                Toast.makeText(ChoiceNamePlayers.this, "You cannot choose the same name for the two players", Toast.LENGTH_LONG).show();
+                return;
+            }
             intent.putExtra("namePlayer1", namePlayer1);
-            String namePlayer2 = findViewById(R.id.tv_name_of_player_2).toString();
             intent.putExtra("namePlayer2", namePlayer2);
         } else if(numberOfPlayers == 3) {
-            String namePlayer1 = findViewById(R.id.tv_name_of_player_1).toString();
+            EditText editTextPlayer1 = findViewById(R.id.edittext_name_of_player_1);
+            TextView editTextPlayer2 = findViewById(R.id.edittext_name_of_player_2);
+            TextView editTextPlayer3 = findViewById(R.id.edittext_name_of_player_3);
+            String namePlayer1 = editTextPlayer1.getText().toString();
+            namePlayer1 = namePlayer1.trim();
+            String namePlayer2 = editTextPlayer2.getText().toString();
+            namePlayer2 = namePlayer2.trim();
+            String namePlayer3 = editTextPlayer3.getText().toString();
+            namePlayer3 = namePlayer3.trim();
+            if(namePlayer1.equals("") || namePlayer2.equals("") || namePlayer3.equals("")) {
+                Toast.makeText(ChoiceNamePlayers.this, "You must choose a name for all the players", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(namePlayer1.equals(namePlayer2) || namePlayer1.equals(namePlayer3) || namePlayer2.equals(namePlayer3)) {
+                Toast.makeText(ChoiceNamePlayers.this, "You cannot choose the same name for the two different players", Toast.LENGTH_LONG).show();
+                return;
+            }
             intent.putExtra("namePlayer1", namePlayer1);
-            String namePlayer2 = findViewById(R.id.tv_name_of_player_2).toString();
             intent.putExtra("namePlayer2", namePlayer2);
-            String namePlayer3 = findViewById(R.id.tv_name_of_player_3).toString();
             intent.putExtra("namePlayer3", namePlayer3);
         } else {
-            String namePlayer1 = findViewById(R.id.tv_name_of_player_1).toString();
+            EditText editTextPlayer1 = findViewById(R.id.edittext_name_of_player_1);
+            EditText editTextPlayer2 = findViewById(R.id.edittext_name_of_player_2);
+            EditText editTextPlayer3 = findViewById(R.id.edittext_name_of_player_3);
+            EditText editTextPlayer4 = findViewById(R.id.edittext_name_of_player_4);
+            String namePlayer1 = editTextPlayer1.getText().toString();
+            namePlayer1 = namePlayer1.trim();
+            String namePlayer2 = editTextPlayer2.getText().toString();
+            namePlayer2 = namePlayer2.trim();
+            String namePlayer3 = editTextPlayer3.getText().toString();
+            namePlayer3 = namePlayer3.trim();
+            String namePlayer4 = editTextPlayer4.getText().toString();
+            namePlayer4 = namePlayer4.trim();
+            if(namePlayer1.equals("") || namePlayer2.equals("") || namePlayer3.equals("") || namePlayer4.equals("")) {
+                Toast.makeText(ChoiceNamePlayers.this, "You must choose a name for all the players", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(namePlayer1.equals(namePlayer2) || namePlayer1.equals(namePlayer3) || namePlayer2.equals(namePlayer3)
+            || namePlayer1.equals(namePlayer4) || namePlayer2.equals(namePlayer4) || namePlayer3.equals(namePlayer4)) {
+                Toast.makeText(ChoiceNamePlayers.this, "You cannot choose the same name for the two different players", Toast.LENGTH_LONG).show();
+                return;
+            }
             intent.putExtra("namePlayer1", namePlayer1);
-            String namePlayer2 = findViewById(R.id.tv_name_of_player_2).toString();
             intent.putExtra("namePlayer2", namePlayer2);
-            String namePlayer3 = findViewById(R.id.tv_name_of_player_3).toString();
             intent.putExtra("namePlayer3", namePlayer3);
-            String namePlayer4 = findViewById(R.id.tv_name_of_player_4).toString();
             intent.putExtra("namePlayer4", namePlayer4);
         }
 
