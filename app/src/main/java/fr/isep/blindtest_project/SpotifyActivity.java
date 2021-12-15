@@ -99,7 +99,7 @@ public class SpotifyActivity extends AppCompatActivity {
     }
 
     private void startMainActivity() {
-        Intent newintent = new Intent(SpotifyActivity.this, SongActivity.class);
+        Intent newintent = new Intent(SpotifyActivity.this, MainActivity2.class);
         startActivity(newintent);
     }
 }

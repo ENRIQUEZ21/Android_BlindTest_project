@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlindTest_project">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".SongActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".SpotifyActivity"
             android:exported="true">
@@ -24,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ChoiceNamePlayers"
             android:exported="false" />
@@ -33,7 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
