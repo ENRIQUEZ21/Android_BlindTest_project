@@ -2,6 +2,7 @@ package Connectors;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -34,17 +35,30 @@ public class SongService {
         return songs;
     }
 
-    public ArrayList<Song> getRecentlyPlayedTracks(final UserService.VolleyCallBack callBack) {
-        String endpoint = "https://api.spotify.com/v1/me/player/recently-played";
+    public ArrayList<Song> getTracks(final UserService.VolleyCallBack callBack) {
+        String endpoint = "https://api.spotify.com/v1/playlists/78J1sOz9SOppym4QJ9GMyZ";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, endpoint, null, response -> {
                     Gson gson = new Gson();
-                    JSONArray jsonArray = response.optJSONArray("items");
+                    JSONObject jsonArray2 = response.optJSONObject("tracks");
+                    JSONArray jsonArray = jsonArray2.optJSONArray("items");
                     for (int n = 0; n < jsonArray.length(); n++) {
                         try {
                             JSONObject object = jsonArray.getJSONObject(n);
                             object = object.optJSONObject("track");
-                            Song song = gson.fromJson(object.toString(), Song.class);
+
+                            String object2 = object.optString("name");
+
+
+                            JSONObject objectUrl = object.optJSONObject("album");
+                            JSONArray arrayImage = objectUrl.optJSONArray("images");
+                            JSONObject objectImage = arrayImage.getJSONObject(0);
+                            String urlImage = objectImage.optString("url");
+
+
+
+                            Song song = new Song("yo",object2,urlImage);
+                            //Song song = gson.fromJson(object.toString(), Song.class);
                             songs.add(song);
                         } catch (JSONException e) {
                             e.printStackTrace();

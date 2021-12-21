@@ -4,10 +4,12 @@ public class Song {
 
     private String id;
     private String name;
+    private String url;
 
-    public Song(String id, String name) {
+    public Song(String id, String name, String url) {
         this.name = name;
         this.id = id;
+        this.url = url;
     }
 
     public String getId() {
@@ -24,6 +26,14 @@ public class Song {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }
