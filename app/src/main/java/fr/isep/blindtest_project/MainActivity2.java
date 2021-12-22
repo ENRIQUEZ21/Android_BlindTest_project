@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -59,9 +58,9 @@ public class MainActivity2 extends AppCompatActivity {
     private void getTracks() {
         songService.getTracks(() -> {
             tracks = songService.getSongs();
+            assignTracksToText();
             randomizeTracks();
             tracksToSet();
-            assignTracksToText();
             updateImage();
         });
     }
@@ -78,10 +77,10 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void assignTracksToText() {
-        track1View.setText(randomTracks.get(0).getName());
-        track2View.setText(randomTracks.get(1).getName());
-        track3View.setText(randomTracks.get(2).getName());
-        track4View.setText(randomTracks.get(3).getName());
+        track1View.setText(tracks.get(0).getName());
+        track2View.setText(tracks.get(1).getName());
+        track3View.setText(tracks.get(2).getName());
+        track4View.setText(tracks.get(3).getName());
     }
 
     private void updateImage() {
