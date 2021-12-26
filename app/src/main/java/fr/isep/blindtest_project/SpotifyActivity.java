@@ -24,8 +24,8 @@ public class SpotifyActivity extends AppCompatActivity {
     private RequestQueue queue;
 
 
-    private static final String CLIENT_ID = "64fa5e7722b142419a6fdae149ea4087";
-    private static final String REDIRECT_URI = "fr.isep.blindtestproject://callback";
+    private static final String CLIENT_ID = "c0288d85e9eb4f8c88a40eb0ca3a2112";
+    private static final String REDIRECT_URI = "com.blindtestspotifylink://callback";
     private static final int REQUEST_CODE = 1337;
     private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private";
 
