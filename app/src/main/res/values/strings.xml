@@ -7,6 +7,23 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="play">Play</string>
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="choice_nb_players">Number of players</string>
+    <string name="settings_game">Settings of the game</string>
+    <string name="question_nb_tests">What type of game do you want to play ?</string>
+    <string name="settings_5_tests">Fast, 5 tests</string>
+    <string name="settings_10_tests">Medium, 10 tests</string>
+    <string name="settings_15_tests">Quite long, 15 tests</string>
+    <string name="settings_20_tests">Very long, 20 tests</string>
+    <string name="cdt_of_end">What end-of-game condition do you want?</string>
+    <string name="end_nb_of_tests">Number of tests realized</string>
+    <string name="end_max_score">Maximum score reached by one player </string>
+    <string name="nb_to_reach">Number to reach to finish the game</string>
+    <string name="edit_nb_to_reach">Number between 5 and 50</string>
+    <string name="nbparam1">Number of good responses</string>
+    <string name="nbparam2">Number of tests passed</string>
+    <string name="end_of_game">END OF GAME</string>
 </resources>

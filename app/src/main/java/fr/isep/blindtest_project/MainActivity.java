@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonStartClicked(View view) {
-        Intent intent = new Intent(this, ChoiceSettings.class);
+        Intent intent = new Intent(this, ChoiceNumberPlayers.class);
         startActivity(intent);
 
     }
