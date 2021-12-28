@@ -13,6 +13,10 @@ import android.widget.Toast;
 
 public class ChoiceNamePlayers extends AppCompatActivity {
 
+    int numberOfPlayers;
+    int nbToFinishGame;
+    String parameterOfEnd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +28,11 @@ public class ChoiceNamePlayers extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        int numberOfPlayers = intent.getIntExtra("numberOfPlayers", 0);
+        numberOfPlayers = intent.getIntExtra("numberOfPlayers", 0);
+        nbToFinishGame = intent.getIntExtra("nbToFinishGame", 0);
+        parameterOfEnd = intent.getStringExtra("parameterOfEnd");
 
-        if(numberOfPlayers == 1) {
-            LinearLayout linearLayout2 = findViewById(R.id.linear_player_2);
-            linearLayout2.setVisibility(View.INVISIBLE);
-        }
-        if(numberOfPlayers <= 2) {
+        if(numberOfPlayers == 2) {
             LinearLayout linearLayout3 = findViewById(R.id.linear_player_3);
             linearLayout3.setVisibility(View.INVISIBLE);
         }
@@ -41,17 +43,12 @@ public class ChoiceNamePlayers extends AppCompatActivity {
     }
 
     public void buttonToPlay(View view) {
-        Intent intentBefore = getIntent();
-        int numberOfPlayers = intentBefore.getIntExtra("numberOfPlayers", 0);
 
         Intent intent = new Intent(this, PlayGame.class);
 
         intent.putExtra("numberOfPlayers", numberOfPlayers);
-        intent.putExtra("minutesMusicTime", intentBefore.getIntExtra("minutesMusicTime", 0));
-        intent.putExtra("secondsMusicTime", intentBefore.getIntExtra("secondsMusicTime", 0));
-        intent.putExtra("parameterOfEnd", intentBefore.getStringExtra("parameterOfEnd"));
-        intent.putExtra("numberToFinishGame", intentBefore.getIntExtra("numberToFinishGame", 0));
-        System.out.println(intentBefore.getIntExtra("numberToFinishGame", 0)+" NUMBER TO FINISH GAME");
+        intent.putExtra("parameterOfEnd", parameterOfEnd);
+        intent.putExtra("numberToFinishGame", nbToFinishGame);
         if(numberOfPlayers >= 1) {
             EditText editTextPlayer1 = findViewById(R.id.edittext_name_of_player_1);
             String namePlayer1 = editTextPlayer1.getText().toString();

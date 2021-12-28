@@ -16,17 +16,24 @@
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/drawable/ic_replay_foreground.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/drawable/ic_users_foreground.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_choice_name_players.xml" value="0.15211640211640212" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_choice_number_players.xml" value="0.15211640211640212" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_choice_settings.xml" value="0.15211640211640212" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_end_game.xml" value="0.15211640211640212" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_play_game.xml" value="0.1388888888888889" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_player_found.xml" value="0.15211640211640212" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_settings_game_many_players.xml" value="0.15211640211640212" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout-land/activity_settings_game_one_player.xml" value="0.15211640211640212" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_choice_name_players.xml" value="0.1796875" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_choice_number_players.xml" value="0.1796875" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_choice_settings.xml" value="0.1796875" />
-        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_end_game.xml" value="0.10364583333333334" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_end_game.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_game.xml" value="0.22" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_main.xml" value="0.115625" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_main2.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_play_game.xml" value="0.1640625" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_play_game.xml" value="0.22" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_player_found.xml" value="0.1796875" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_settings_game_many_players.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_settings_game_one_player.xml" value="0.1796875" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_song.xml" value="0.1796875" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/Android_BlindTest_project/app/src/main/res/layout/activity_spotify.xml" value="0.115625" />
         <entry key="..\:/Users/PROPRIETAIRE/AndroidStudioProjects/BlindTest_project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19583333333333333" />

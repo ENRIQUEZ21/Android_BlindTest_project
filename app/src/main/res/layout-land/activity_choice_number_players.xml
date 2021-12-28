@@ -6,34 +6,53 @@
     android:background="@color/purple_200"
     android:layout_height="match_parent">
 
-
-    <TextView
+    <LinearLayout
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:gravity="center"
-        android:text="@string/end_of_game"
-        android:textColor="@color/text_yellow"
-        android:textSize="36dp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView"
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_users_foreground"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/choice_nb_players"
+            android:textColor="@color/text_yellow"
+            android:textSize="36dp"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/nb_players"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
-        android:textSize="28dp"
-        android:textColor="@color/text_yellow"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:ignore="MissingConstraints" />
+        android:hint="@string/choice_nb_players"
+        android:inputType="number"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:ignore="MissingConstraints">
 
+    </EditText>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -46,11 +65,11 @@
         >
 
         <Button
-            android:id="@+id/button_replay"
+            android:id="@+id/button_ok_nb_players"
             android:layout_width="278dp"
             android:layout_height="86dp"
-            android:onClick="buttonReplay"
-            android:text="Replay"
+            android:onClick="buttonSetNumberOfPlayers"
+            android:text="@string/next"
             android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.548"
@@ -59,10 +78,10 @@
             tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:id="@+id/image_replay"
+            android:id="@+id/image_next_settings"
             android:layout_width="wrap_content"
             android:layout_height="86dp"
-            android:layout_alignLeft="@id/button_replay"
+            android:layout_alignRight="@id/button_ok_nb_players"
             android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.548"
@@ -70,5 +89,6 @@
             app:layout_constraintRight_toRightOf="parent" />
 
     </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

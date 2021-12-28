@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="84dp"
         android:gravity="center"
         android:text="Click on the button to say the song that belongs to this album"
         android:textColor="@color/text_yellow"
@@ -101,12 +101,85 @@
         android:textSize="16dp"
         android:textColor="@color/red"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.0" />
+    <LinearLayout
+        android:id="@+id/scores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textResult">
+        <TextView
+            android:id="@+id/score1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_yellow" />
+        <TextView
+            android:id="@+id/score2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_yellow" />
+        <TextView
+            android:id="@+id/score3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_yellow" />
+        <TextView
+            android:id="@+id/score4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_yellow" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/statistics"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/scores"
+        tools:ignore="NotSibling">
+        <TextView
+            android:id="@+id/tests_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="32dp"
+            android:textColor="@color/text_yellow"
+            android:text="TESTS DONE" />
+        <TextView
+            android:id="@+id/tests_to_do"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="32dp"
+            android:textColor="@color/text_yellow"
+            android:text="TOTAL TESTS" />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/speechbutton"
@@ -116,7 +189,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResult"/>
+        app:layout_constraintTop_toBottomOf="@+id/statistics"/>
 
 
 

@@ -42,7 +42,6 @@ public class PlayGame extends AppCompatActivity {
     private TextView textResult;
     private static final int RECOGNIZER_CODE = 1;
     protected int numberOfPlayers;
-    protected int numberSecondsForEachMusic;
     protected String paramaterOfEnd;
     protected int numberToFinishGame;
     protected String namePlayer1;
@@ -53,7 +52,18 @@ public class PlayGame extends AppCompatActivity {
     protected int scorePlayer2;
     protected int scorePlayer3;
     protected int scorePlayer4;
-    protected int numberOfMusicsPlayed;
+    protected int maxScore;
+
+    protected int nbOfTestsDone;
+
+    TextView tvScore1;
+    TextView tvScore2;
+    TextView tvScore3;
+    TextView tvScore4;
+    TextView tvTestsDone;
+    TextView tvTestsToDo;
+    Intent intentBefore;
+
 
 
     @Override
@@ -72,11 +82,22 @@ public class PlayGame extends AppCompatActivity {
         SharedPreferences sharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         getTracks();
 
+
+
+        tvScore1 = findViewById(R.id.score1);
+        tvScore2 = findViewById(R.id.score2);
+        tvScore3 = findViewById(R.id.score3);
+        tvScore4 = findViewById(R.id.score4);
+        tvTestsDone = findViewById(R.id.tests_done);
+        tvTestsToDo = findViewById(R.id.tests_to_do);
+
+
         // Get the data from intent of the precedent page
-        Intent intentBefore = getIntent();
+        intentBefore = getIntent();
+        nbOfTestsDone = intentBefore.getIntExtra("nbOfTestsDone", 0);
+
+
         numberOfPlayers = intentBefore.getIntExtra("numberOfPlayers", 0);
-        numberSecondsForEachMusic = intentBefore.getIntExtra("secondsMusicTime", 0)+
-                60*intentBefore.getIntExtra("minutesMusicTime", 0);
         paramaterOfEnd = intentBefore.getStringExtra("parameterOfEnd");
         numberToFinishGame = intentBefore.getIntExtra("numberToFinishGame", 0);
         if(numberOfPlayers >= 1) {
@@ -95,8 +116,46 @@ public class PlayGame extends AppCompatActivity {
         scorePlayer2 = intentBefore.getIntExtra("scorePlayer2", 0);
         scorePlayer3 = intentBefore.getIntExtra("scorePlayer3", 0);
         scorePlayer4 = intentBefore.getIntExtra("scorePlayer4", 0);
-        numberOfMusicsPlayed = 0;
         activateSpeekButton();
+
+        if(numberOfPlayers == 1) {
+            tvScore1.setText("SCORE = "+scorePlayer1);
+            tvTestsDone.setText("TESTS DONE = "+nbOfTestsDone);
+            tvTestsToDo.setText("TOTAL TESTS = "+numberToFinishGame);
+        } else {
+            if(paramaterOfEnd.equals("NBTESTS")) {
+                tvScore1.setText(namePlayer1+" = "+scorePlayer1);
+                tvScore2.setText(namePlayer2+" = "+scorePlayer2);
+                if(numberOfPlayers >= 3) {
+                    tvScore3.setText(namePlayer3+" = "+scorePlayer3);
+                }
+                if(numberOfPlayers == 4) {
+                    tvScore4.setText(namePlayer4+" = "+scorePlayer4);
+                }
+                tvTestsDone.setText("TESTS DONE = "+nbOfTestsDone);
+                tvTestsToDo.setText("TOTAL TESTS = "+numberToFinishGame);
+            } else {
+                ArrayList<Integer> scoresArrayList = new ArrayList<>();
+                tvScore1.setText(namePlayer1+" = "+scorePlayer1);
+                scoresArrayList.add(scorePlayer1);
+                tvScore2.setText(namePlayer2+" = "+scorePlayer2);
+                scoresArrayList.add(scorePlayer2);
+                if(numberOfPlayers >= 3) {
+                    tvScore3.setText(namePlayer3+" = "+scorePlayer3);
+                    scoresArrayList.add(scorePlayer3);
+                }
+                if(numberOfPlayers == 4) {
+                    tvScore4.setText(namePlayer4+" = "+scorePlayer4);
+                    scoresArrayList.add(scorePlayer4);
+                }
+                Collections.sort(scoresArrayList);
+                Collections.reverse(scoresArrayList);
+                maxScore = scoresArrayList.get(0);
+
+                tvTestsDone.setText("MAX SCORE = "+maxScore);
+                tvTestsToDo.setText("SCORE TO REACH = "+numberToFinishGame);
+            }
+        }
     }
 
 
@@ -163,8 +222,14 @@ public class PlayGame extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == RECOGNIZER_CODE && resultCode == RESULT_OK){
             ArrayList<String> taskText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            nbOfTestsDone++;
+            intentBefore.putExtra("nbOfTestsDone", nbOfTestsDone);
             if(taskText.get(0).toString().equals(correctSong)) { // Put the name of the song
                 Intent intentChooseWinner = new Intent(this, ChooseWinner.class);
+
+                intentChooseWinner.putExtra("numberToFinishGame", numberToFinishGame);
+                intentChooseWinner.putExtra("nbOfTestsDone", nbOfTestsDone);
+
                 intentChooseWinner.putExtra("numberOfPlayers", numberOfPlayers);
                 intentChooseWinner.putExtra("namePlayer1", namePlayer1);
                 intentChooseWinner.putExtra("namePlayer2", namePlayer2);
@@ -175,13 +240,72 @@ public class PlayGame extends AppCompatActivity {
                 intentChooseWinner.putExtra("scorePlayer3", scorePlayer3);
                 intentChooseWinner.putExtra("scorePlayer4", scorePlayer4);
                 intentChooseWinner.putExtra("parameterOfEnd", paramaterOfEnd);
-                intentChooseWinner.putExtra("numberToFinishGame", numberToFinishGame);
-                intentChooseWinner.putExtra("numberSecondsForEachMusic", numberSecondsForEachMusic);
-                intentChooseWinner.putExtra("numberOfMusicsPlayed", numberOfMusicsPlayed);
                 startActivity(intentChooseWinner);
                 finish();
             } else {
                 textResult.setText(taskText.get(0).toString()+" is not the correct answer");
+                if(numberOfPlayers == 1) {
+                    TextView tvTestsDone = findViewById(R.id.tests_done);
+                    tvTestsDone.setText("TESTS DONE = "+nbOfTestsDone);
+                    if(nbOfTestsDone == numberToFinishGame) {
+                        Intent intent = new Intent(this, EndGame.class);
+                        intent.putExtra("numberToFinishGame", numberToFinishGame);
+                        intent.putExtra("numberOfPlayers", numberOfPlayers);
+                        intent.putExtra("scorePlayer1", scorePlayer1);
+                        startActivity(intent);
+                        finish();
+                        return;
+                    }
+                } else {
+                    if(paramaterOfEnd.equals("NBTESTS")) {
+                        TextView tvTestsDone = findViewById(R.id.tests_done);
+                        tvTestsDone.setText("TESTS DONE = "+nbOfTestsDone);
+                        if(nbOfTestsDone == numberToFinishGame) {
+                            Intent intent = new Intent(this, EndGame.class);
+                            intent.putExtra("numberToFinishGame", numberToFinishGame);
+                            intent.putExtra("numberOfPlayers", numberOfPlayers);
+                            ArrayList<Integer> scoresArrayList = new ArrayList<>();
+                            scoresArrayList.add(scorePlayer1);
+                            scoresArrayList.add(scorePlayer2);
+                            if(numberOfPlayers >= 3) {
+                                scoresArrayList.add(scorePlayer3);
+                            }
+                            if(numberOfPlayers == 4) {
+                                scoresArrayList.add(scorePlayer4);
+                            }
+                            Collections.sort(scoresArrayList);
+                            Collections.reverse(scoresArrayList);
+                            if(!scoresArrayList.get(0).equals(scoresArrayList.get(1))) {
+                                if (scoresArrayList.get(0).equals(scorePlayer1)) {
+                                    intent.putExtra("nameWinner", namePlayer1);
+                                } else if (scoresArrayList.get(0).equals(scorePlayer2)) {
+                                    intent.putExtra("nameWinner", namePlayer2);
+                                } else if (scoresArrayList.get(0).equals(scorePlayer3)) {
+                                    intent.putExtra("nameWinner", namePlayer3);
+                                } else {
+                                    intent.putExtra("nameWinner", namePlayer4);
+                                }
+                            } else {
+                                intent.putExtra("nameWinner", "NO WINNER");
+                            }
+                            intent.putExtra("scorePlayer1", scorePlayer1);
+                            intent.putExtra("scorePlayer2", scorePlayer2);
+                            intent.putExtra("namePlayer1", namePlayer1);
+                            intent.putExtra("namePlayer2", namePlayer2);
+                            if(numberOfPlayers >= 3) {
+                                intent.putExtra("scorePlayer3", scorePlayer3);
+                                intent.putExtra("namePlayer3", namePlayer3);
+                            }
+                            if(numberOfPlayers == 4) {
+                                intent.putExtra("scorePlayer4", scorePlayer4);
+                                intent.putExtra("namePlayer4", namePlayer4);
+                            }
+                            startActivity(intent);
+                            finish();
+                            return;
+                        }
+                    }
+                }
             }
         }
     }

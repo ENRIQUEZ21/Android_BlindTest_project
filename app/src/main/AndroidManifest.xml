@@ -30,10 +30,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChoiceNamePlayers"
+            android:name=".ChoiceNumberPlayers"
             android:exported="false" />
         <activity
-            android:name=".ChoiceSettings"
+            android:name=".SettingsGameOnePlayer"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsGameManyPlayers"
+            android:exported="false" />
+        <activity
+            android:name=".ChoiceNamePlayers"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
