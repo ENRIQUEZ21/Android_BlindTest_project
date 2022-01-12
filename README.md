@@ -1,4 +1,4 @@
-# Android_BlindTest_project - Group 18
+# BlindTestMusic - Group 18
 
 # Members of the project
 
